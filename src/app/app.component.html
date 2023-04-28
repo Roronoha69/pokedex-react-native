@@ -1,0 +1,51 @@
+ <!--The content below is only a placeholder and can be replaced.-->
+ <div style="text-align:center" class="content">
+ 
+<h1>Liste</h1>
+  <input 
+  #input
+  (keyup.enter)="selectPokemon(input.value)"
+  type="number"
+
+  >
+  <p *ngIf="pokemonSelected"> Vous avez selectionné {{pokemonSelected.name}} </p>
+
+  <p *ngIf="!pokemonSelected"> Aucun pokemon trouvéEE </p>
+
+ 
+  <!-- <div  *ngFor= "let item of pokemonList" class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" [src]="item.picture">
+    </div>
+    <div class="card-content">
+      <span class="card-title activator grey-text text-darken-4"> {{item.name}} <i class="material-icons right">more_vert</i></span>
+    </div>
+   
+      <p> {{item.hp}} </p>
+      <p> {{item.cp}} </p>
+      <p> {{item.types}} </p>
+      <p> {{item.created}} </p>
+  </div>
+    
+
+ </div> -->
+
+ <h1 class='center'>Pokémons</h1>
+ 
+<div class='container'>
+<div class="row">
+<div *ngFor='let pokemon of pokemonList' class="col s6 m4">
+  <div class="card horizontal" (click)="selectPokemon(pokemon.name)">
+    <div class="card-image">
+      <img [src]="pokemon.picture">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p>{{ pokemon.name }}</p>
+        <p><small>{{ pokemon.created }}</small></p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
